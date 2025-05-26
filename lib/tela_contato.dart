@@ -32,14 +32,99 @@ class TelaContatoState extends State<TelaContato> {
                     child: Text(
                       "Contato",
                       style: TextStyle(
-                          fontSize: 20
+                        fontSize: 20,
+                        color: Colors.green
                       ),
                     ),
                   )
                 ],
               ),
-              
-              // Implementar os dados de contato
+              SizedBox(height: 32),
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.phone, color: Colors.green),
+                          SizedBox(width: 10),
+                          Text(
+                            "Telefone:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "(87) xxxxx-xxxx",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.email_outlined, color: Colors.green),
+                          SizedBox(width: 10),
+                          Text(
+                            "E-mail:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "contato@faculdadenovaroma.com.br",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.location_on, color: Colors.green),
+                          SizedBox(width: 10),
+                          Text(
+                            "Endereço:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Av Adjar da Silva Casé, 800\nIndianópolis, Caruaru-PE\nCEP: 55024740",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        children: <Widget>[
+                          Icon(Icons.access_time, color: Colors.green),
+                          SizedBox(width: 10),
+                          Text(
+                            "Horário de Atendimento:",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Segunda a Sexta: 10h às 22h\nSábado: 9h às 13h",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               
             ],
           ),

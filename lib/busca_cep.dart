@@ -11,7 +11,7 @@ class BuscaCep extends StatefulWidget {
 
 class BuscaCepState extends State<BuscaCep> {
 
-  TextEditingController _controllerCep = TextEditingController();
+  final TextEditingController _controllerCep = TextEditingController();
   String _resultado = "Resultado";
   
   _recuperarCep() async {
