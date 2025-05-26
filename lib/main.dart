@@ -7,11 +7,21 @@ import 'package:projeto_aplicacoes_moveis/tela_servicos.dart';
 import 'package:projeto_aplicacoes_moveis/tela_clientes.dart';
 import 'package:projeto_aplicacoes_moveis/tela_contato.dart';
 
-void main(){
+void main() {
   runApp(MaterialApp(
     home: Home(),
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+      appBarTheme: AppBarTheme(
+        titleSpacing: 0,
+        titleTextStyle: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
     routes: {
       '/buscacep': (context) => BuscaCep(),
       '/bitcoin': (context) => Bitcoin(),

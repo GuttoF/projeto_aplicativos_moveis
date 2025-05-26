@@ -10,26 +10,16 @@ class Bitcoin extends StatefulWidget {
 }
 
 class BitcoinState extends State<Bitcoin> {
-
   String _preco = "0";
 
   void _recuperarPreco() async {
-
-    // "https://blockchain.info/ticker";
-    var url = Uri.https("blockchain.info", "ticker");
-    // Implementar o método de requisição
-    http.Response response = await http.get(url);
-    // Implementar converter o retorno para JSON
-    Map<String, dynamic> retorno = json.decode( response.body );
-
+    String url = "https://blockchain.info/ticker";
+    http.Response response = await http.get(Uri.parse(url));
+    Map<String, dynamic> retorno = json.decode(response.body);
+    
     setState(() {
-      // Implementar a lógica para atualizar o preço
-      // do Bitcoin em Reais
-      // O preço do Bitcoin em Reais está na chave "BRL"
-      // e o valor do preço está na chave "buy"
-      _preco = "Implementar o preço do Bitcoin em Reais";
+      _preco = retorno["BRL"]["buy"].toString();
     });
-
   }
 
   @override
@@ -37,7 +27,7 @@ class BitcoinState extends State<Bitcoin> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Título tela"),
+        title: Text("Bitcoin"),
         backgroundColor: Colors.orange,
         foregroundColor: Colors.white,
         centerTitle: false,
@@ -48,22 +38,32 @@ class BitcoinState extends State<Bitcoin> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset("images/bitcoin.png", height: 70),
+              Image.asset(
+                "images/bitcoin.png",
+                width: 200,
+              ),
               Padding(
                 padding: EdgeInsets.only(top: 30, bottom: 30),
-                child: Text("Valor do Bitcoin",
+                child: Text(
+                  "R\$ " + _preco,
                   style: TextStyle(
                     fontSize: 35
                   ),
                 ),
               ),
               ElevatedButton(
-                onPressed: _recuperarPreco,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
+                  padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
                 ),
-                child: Text("Atualizar"),
+                onPressed: _recuperarPreco,
+                child: Text(
+                  "Atualizar",
+                  style: TextStyle(
+                    fontSize: 20
+                  ),
+                ),
               )
             ],
           ),
